@@ -1,0 +1,42 @@
+<h1>New game</h1>
+<div class = "tab">
+  <% @letters.each do|letter|%>
+  <div class = "letters">
+      <%= letter%>
+   </div>
+  <% end %></div>
+
+<form action="/score" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input id="token" name="word" type="hidden" value="<%= @letters.join %>">
+  <input type="text" name="choice" placeholder="Your longest english word">
+
+  <div class="btn">
+    <input type="submit">
+  </div>
+</form>
+
+
+
+
+
+
+<style>
+  .letters{
+    background: white;
+    color: black;
+    min-width: 15px;
+    max-width: 20px;
+    min-height: 15px;
+    max-height: 20px;
+    margin:3px;
+    border:1px solid #CCC;
+    padding:5px;
+    text-align: center;
+    text-shadow: 1px 1px #CCC;
+  }
+  .tab{
+    display:flex;
+  }
+
+</style>
